@@ -1,12 +1,12 @@
-let foo = 42 // foo is now a number
-console.log('Foo is 42 which is typeof', (typeof foo))
+let testSubject = 'Milk' // testSubject is now a string
+console.log('testSubject is Milk which is typeof', (typeof testSubject))
 
-foo = "bar" // foo is now a string
-console.log('Foo is bar which is typeof', (typeof foo))
+testSubject = 7 // testSubject is now a number
+console.log('testSubject is 7 which is typeof', (typeof testSubject))
 
-foo = true // foo is now a boolean
-console.log('Foo is true which is typeof', (typeof foo))
+testSubject = true // testSubject is now a boolean
+console.log('testSubject is true which is typeof', (typeof testSubject))
 
-foo = 42 // foo is a number
-const result = foo + "1" // JavaScript coerces foo to a string, so it can be concatenated with the other operand
-console.log('result is 42 + 1 is typeof - ', (typeof result)) // 421
+testSubject = 7 // testSubject is a number
+const result = testSubject + "2" // JavaScript coerces testSubject to a string, so it can be concatenated with the other operand
+console.log('result is 7 + 2 is typeof - ', (typeof result)) // string
