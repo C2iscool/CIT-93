@@ -1,0 +1,1 @@
+# WEEK 6 video 1 my thoughts: I needed to redo this class this semester, so I already was used to using some of the methods you taught in the previous semester. I used some of those methods here before you became the primary instructor. I am happy to see a return to it since it was working well for me. If I am using this .md format to show my thoughts, then let me know.
