@@ -16,7 +16,8 @@ console.log(`chrisVar is typeof ${typeof chrisVar}`) //chrisVar is "undefined" b
 let chrisVarTwo = null
 console.log(`chrisVarTwo is typeof ${typeof chrisVarTwo}`) //chrisVarTwo is "null"/"object" because it has been intentionally set to this null value
 
-const chrisConst = 77
+const chrisConst = 77 //const is a variable type that only lets you declare it once
+//chrisConst = 'Chris' <-- this code would cause an error in the console
 
 //if (false) {
 //    const chrisConst = 77
