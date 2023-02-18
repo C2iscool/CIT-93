@@ -1,5 +1,6 @@
 //Functions are fun!
 
+//normal functions
 function myMath (a, b) {
     let result = a * b
     return result 
@@ -20,10 +21,13 @@ function ozToCups (a) {
 console.log(`${ozToCups(1)}`)
 
 
-
-moreMyMath = (a, b) => a * b
+//arrow functions
+moreMyMath = (a, b) => a * b //can really clean up simple functions and transform them into single, short lines
 
 console.log(moreMyMath(1, 7))
+
+arrowOzToCups = (a) => {a / 8}
+console.log(`${ozToCups(1)}`)
 
 //functions may also be created by declaring a constant variable as like this:
 //const myMath = () {
