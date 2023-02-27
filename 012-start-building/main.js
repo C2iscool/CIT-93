@@ -1,6 +1,6 @@
 //Update the DOM
 
-const myArray = ['MPG for Chris']
+const myArray = []
 
 const updateDOM = (input) => {
     divEl = document.querySelector('#output')
@@ -10,11 +10,11 @@ const updateDOM = (input) => {
 }
 
 const trackMPGCost = (mi = 10, gal = 1, cost = 2) => {
-    const MPG = mi/gal * cost
-    const tripCost = MPG * cost
+    const MPG = Math.round(mi/gal)
+    const tripCost = gal * cost
+    updateDOM(`MPG: ${MPG} Trip Cost: ${tripCost}`)
     myArray.push(MPG, tripCost)
-    myArray.shift()
 }
 
-updateDOM(trackMPGCost(300, 10, 4.20))
-updateDOM(trackMPGCost(320, 12, 4))
+(trackMPGCost(300, 10, 4.20))
+updateDOM(myArray)
