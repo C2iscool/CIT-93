@@ -2,9 +2,11 @@
 
 const updateDOM = (input) => {
     divEl = document.querySelector('#output')
-    const p = document.createElement('h1')
-    p.textContent = input
-    divEl.appendChild(p)
+    const h1 = document.createElement('h1')
+    h1.textContent = input
+    divEl.appendChild(h1)
 }
 
-updateDOM(7)
+const mileage = (mi = 10, gal = 1, cost = 2) => mi/gal*cost
+
+updateDOM(mileage(300, 10, 4.20))
