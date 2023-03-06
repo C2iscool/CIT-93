@@ -1,5 +1,3 @@
-//Update the DOM
-
 const myArray = []
 
 const updateDOM = (input) => {
@@ -16,10 +14,11 @@ const trackMPGCost = (mi = 10, gal = 1, cost = 2) => {
     myArray.push(MPG, tripCost)
 }
 
-(trackMPGCost(300, 10, 4.20))
-updateDOM(myArray)
-
 const calcAvg = () => {
     const avgMPG = (myArray[0] + myArray[2]) / 2
-    updateDOM(myArray)
+    updateDOM(`Average MPG: ${avgMPG}`)
 }
+
+trackMPGCost(300, 10, 4)
+trackMPGCost(300, 10, 2)
+calcAvg()
