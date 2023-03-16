@@ -1,1 +1,3 @@
-# Week 8 User Input
+# Week 8 User Input - I noticed right away "Form-El" was not valid because of the hyphen.
+
+# - I understand how this code works. The previous semester helped me comprehend this concept as well. For part 3, I used your parseInt code, but I noticed that before you used that way of writing, your code had visible errors. 'e.target.gallons.value" would work just fine, but you had it typed out as 'e.target.gallons.values", which broke part of the code. I also noticed you di not add the ".value" to the price part of the input.

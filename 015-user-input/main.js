@@ -1,3 +1,5 @@
+const formEl = document.getElementById('form-input')
+
 const MY_MPG = []
 const MY_TRIP_COST = []
 
@@ -38,10 +40,18 @@ const calcAvg = () => {
     updateDOM(`Average Trip Cost: ${avgTripCost}`)
 }
 
-trackMPGandCost(300, 10, 4)
-trackMPGandCost(300, 10, 2)
-trackMPGandCost(200, 11, 3)
-trackMPGandCost(200, 9, 5)
-trackMPGandCost(100, 12, 2)
-trackMPGandCost(100, 18, 4)
-calcAvg()
+formEl.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const miles = parseInt(e.target.miles.value)
+    const gallons = parseInt(e.target.gallons.value)
+    const price = parseInt(e.target.price.value)
+    trackMPGandCost(miles, gallons, price)
+})
+
+// trackMPGandCost(300, 10, 4)
+// trackMPGandCost(300, 10, 2)
+// trackMPGandCost(200, 11, 3)
+// trackMPGandCost(200, 9, 5)
+// trackMPGandCost(100, 12, 2)
+// trackMPGandCost(100, 18, 4)
+// calcAvg()
