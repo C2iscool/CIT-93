@@ -12,14 +12,16 @@
 <body>
     <div class="centered">
         <div id="err" class="error"></div>
+        <div id="output"></div>
+        <div id="output-avg"></div>
         <form id="form-input">
             <h1>Getting User Input</h1>
-            <labels>Miles<input id="miles" name="miles" type="number" required></labels>
-            <labels>Gallons<input id="gallons" name="gallons" type="number" required></labels>
-            <labels>Price (per gallon)<input id="price" name="price" type="number" required></labels>
+            <labels><input id="miles" name="miles" type="number" required placeholder="Miles"></labels>
+            <labels><input id="gallons" name="gallons" type="number" required placeholder="Gallons"></labels>
+            <labels><input id="price" name="price" type="number" required placeholder="Price (per gallon)"></labels>
             <button>Submit</button>
     </form>
-    <div id="output"></div>
+    
 </div>
 </body>
 </html>
