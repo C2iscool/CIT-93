@@ -41,8 +41,12 @@ formEl.addEventListener('submit', (e) => {
     const miles = parseInt(e.target.miles.value)
     const gallons = parseInt(e.target.gallons.value)
     const price = parseInt(e.target.price.value)
-    if(miles === 0) {
+    if(miles === 0 || gallons === 0 || price === 0) {
         errMsg.push('Miles input must be greater than zero')
+    }
+
+    if(price > 1000) {
+        errMsg.push('Wow, are the prices really this bad? I think an EV is your best option now.')
     }
 
     if(errMsg.length > 0) {
@@ -51,5 +55,6 @@ formEl.addEventListener('submit', (e) => {
         trackMPGandCost(miles, gallons, price)
     }
 
+    
 
 })
