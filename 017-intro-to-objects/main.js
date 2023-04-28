@@ -15,7 +15,8 @@ const myObject = {
         os: 'iOS 16'
     },
     myGreeting: function(person) {
-        return `Heyo ${person}!`
+        
+        return `${this.name} who loves ${this.hobbies}, says: Heyo ${person}!`
     }
 }
 
