@@ -2,8 +2,7 @@ const formEl = document.getElementById('form-input')
 const err = document.getElementById('err')
 const avg_output = document.getElementById('output-avg')
 
-
-trackobj = {
+const trackCalcObject = {
 MY_MPG: [],
 MY_TRIP_COST: [],
 
@@ -14,12 +13,12 @@ updateDOM: (input, id) => {
     divEl.appendChild(h1)
 },
 
-trackMPGandCost: (mi = 10, gal = 1, cost = 2) => {
+trackMPGandCost: function(mi, gal, cost = 2.22) {
     const MPG = Math.round(mi/gal)
     const tripCost = Math.round(gal * cost)
-    updateDOM(`MPG: ${MPG} Trip Cost: ${tripCost}`, '#output')
-    MY_MPG.push(MPG)
-    MY_TRIP_COST.push(tripCost)
+    this.updateDOM(`MPG: ${MPG} Trip Cost: ${tripCost}`, '#output')
+    this.MY_MPG.push(MPG)
+    this.MY_TRIP_COST.push(tripCost)
 },
 
 calcSUM: (arr) => {
@@ -30,17 +29,16 @@ calcSUM: (arr) => {
     return sum
 },
 
-calcAvg: () => {
-    let sumMPG = calcSUM(MY_MPG)
-    let sumTripCost = calcSUM(MY_TRIP_COST)
-    let avgMPG = Math.round(sumMPG/MY_MPG.length)
-    let avgTripCost = Math.round(sumTripCost/MY_TRIP_COST.length)
-    updateDOM(`Average MPG: ${avgMPG}`, '#output-avg')
-    updateDOM(`Average Trip Cost: ${avgTripCost}`, '#output-avg')
+calcAvg: function() {
+    let sumMPG = this.calcSUM(this.MY_MPG)
+    let sumTripCost = this.calcSUM(this.MY_TRIP_COST)
+    let avgMPG = Math.round(sumMPG/this.MY_MPG.length)
+    let avgTripCost = Math.round(sumTripCost/this.MY_TRIP_COST.length)
+    this.updateDOM(`Average MPG: ${avgMPG}`, '#output-avg')
+    this.updateDOM(`Average Trip Cost: ${avgTripCost}`, '#output-avg')
 },
 
-formEl.addEventListener('submit', (e) => {
-    e.preventDefault()
+validateForm: function (e) {
     const errMsg = []
     const miles = parseInt(e.target.miles.value)
     const gallons = parseInt(e.target.gallons.value)
@@ -48,20 +46,22 @@ formEl.addEventListener('submit', (e) => {
     if(miles === 0 || gallons === 0 || price === 0) {
         errMsg.push('Miles input must be greater than zero')
     }
-
     if(price > 1000) {
         errMsg.push('Wow, are the prices really this bad? I think an EV is your best option now.')
     }
-
     if(errMsg.length > 0) {
         err.textContent = errMsg
     } else {
         err.textContent = ''
         avg_output.textContent = ''
-        trackMPGandCost(miles, gallons, price)
-        calcAvg()
+        this.trackMPGandCost(miles, gallons, price)
+        this.calcAvg()
     }
     formEl.reset()
-
-})
+},
 }
+
+formEl.addEventListener('submit', (e) => {
+    e.preventDefault()
+    trackCalcObject.validateForm(e)
+})
