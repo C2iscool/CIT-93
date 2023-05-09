@@ -2,42 +2,38 @@ const formEl = document.getElementById('form-input')
 const err = document.getElementById('err')
 const avg_output = document.getElementById('output-avg')
 
-// const MY_MPG = []
-// const MY_TRIP_COST = []
-
-const MY_DATA = [
+const MY_DATA = []
 
 const updateDOM = (input, id) => {
     divEl = document.querySelector(id)
     const h1 = document.createElement('h1')
     h1.textContent = input
     divEl.appendChild(h1)
-}, //keep this 
+}
 
 const trackMPGandCost = (obj) => {
-    const MPG = Math.round(obj.mi/obj.gal)
-    const tripCost = Math.round(obj.gal * obj.cost)
+    const MPG = Math.round(obj.miles/obj.gallons)
+    const tripCost = Math.round(obj.gallons * obj.price)
     updateDOM(`MPG: ${MPG} Trip Cost: ${tripCost}`, '#output')
-    MY_MPG.push(MPG)
-    MY_TRIP_COST.push(tripCost)
-},
+    obj.MPG = MPG
+    obj.tripCost = tripCost
+ 
+    return obj
+}
 
-// const calcSUM = (arr) => {
-//     let sum = 0
-//     for(value of arr) {
-//         sum += value
-//     }
-//     return sum
-// }
 const calcAvg = () => {
-    let sumMPG = calcSUM(MY_MPG)
-    let sumTripCost = calcSUM(MY_TRIP_COST)
-    let avgMPG = Math.round(obj.sumMPG/MY_MPG.length)
-    let avgTripCost = Math.round(obj.sumTripCost/MY_TRIP_COST.length)
-    updateDOM(`Average MPG: ${obj.avgMPG}`, '#output-avg')
-    updateDOM(`Average Trip Cost: ${obj.avgTripCost}`, '#output-avg')
-},
-]
+    let sumMPG = 0
+    let sumTripCost = 0
+    MY_DATA.forEach(obj => {
+        sumMPG += obj.MPG
+        sumTripCost =+ obj.tripCost
+    })
+    let avgMPG = Math.round(sumMPG/MY_DATA.length)
+    let avgTripCost = Math.round(sumTripCost/MY_DATA.length)
+    updateDOM(`Average MPG: ${avgMPG}`, '#output-avg')
+    updateDOM(`Average Trip Cost: ${avgTripCost}`, '#output-avg')
+}
+
 formEl.addEventListener('submit', (e) => {
     e.preventDefault()
     const errMsg = []
@@ -47,19 +43,26 @@ formEl.addEventListener('submit', (e) => {
     if(miles === 0 || gallons === 0 || price === 0) {
         errMsg.push('Miles input must be greater than zero')
     }
-
     if(price > 1000) {
         errMsg.push('Wow, are the prices really this bad? I think an EV is your best option now.')
     }
-
     if(errMsg.length > 0) {
         err.textContent = errMsg
     } else {
+        const newDataObj = {
+            miles: miles,
+            gallons: gallons,
+            price: price
+        }
         err.textContent = ''
         avg_output.textContent = ''
-        trackMPGandCost(miles, gallons, price)
+        const updateDataObj = trackMPGandCost(newDataObj)
+        MY_DATA.push(updateDataObj)
         calcAvg()
+
     }
     formEl.reset()
 
 })
+
+//feedback left in README.md
