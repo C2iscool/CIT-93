@@ -1,1 +1,3 @@
 # Feedback: I definitely thought this was a tough one to figure out. It makes me kind of scared for the later coding challenges. I also think is my fault since I took such big breaks in between sessions.
+
+# I totally get the idea of a CRUD app. Inputting data, having the code read the data, having the code interpret and respond to the data, and then deleting unnecessary things. At this point, creating a CRUD app on my own would be terrifying. If I were start developing a CRUD app, I would probably try to make an app that I tried making during the last time I did this class. I was thinking of making an app that gives you a random song based on a mood you pick from a list of options. 
