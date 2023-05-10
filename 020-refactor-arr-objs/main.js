@@ -11,14 +11,18 @@ const updateDOM = (input, id) => {
     divEl.appendChild(h1)
 }
 
-const trackMPGandCost = (obj) => {
-    const MPG = Math.round(obj.miles/obj.gallons)
-    const tripCost = Math.round(obj.gallons * obj.price)
+const trackMPGandCost = (miles, gallons, price) => {
+    const MPG = Math.round(miles/gallons)
+    const tripCost = Math.round(gallons * price)
     updateDOM(`MPG: ${MPG} Trip Cost: ${tripCost}`, '#output')
-    obj.MPG = MPG
-    obj.tripCost = tripCost
- 
-    return obj
+    return {
+        MPG: MPG,
+        tripCost: tripCost,
+        miles: miles,
+        gallons: gallons,
+        price: price
+    }
+
 }
 
 const calcAvg = () => {
@@ -34,12 +38,8 @@ const calcAvg = () => {
     updateDOM(`Average Trip Cost: ${avgTripCost}`, '#output-avg')
 }
 
-formEl.addEventListener('submit', (e) => {
-    e.preventDefault()
+const isFormValid = (miles, gallons, price) => {
     const errMsg = []
-    const miles = parseInt(e.target.miles.value)
-    const gallons = parseInt(e.target.gallons.value)
-    const price = parseInt(e.target.price.value)
     if(miles === 0 || gallons === 0 || price === 0) {
         errMsg.push('Miles input must be greater than zero')
     }
@@ -48,21 +48,26 @@ formEl.addEventListener('submit', (e) => {
     }
     if(errMsg.length > 0) {
         err.textContent = errMsg
+        return false
     } else {
-        const newDataObj = {
-            miles: miles,
-            gallons: gallons,
-            price: price
-        }
+        return true
+    }
+}
+
+formEl.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const miles = parseInt(e.target.miles.value)
+    const gallons = parseInt(e.target.gallons.value)
+    const price = parseInt(e.target.price.value)
+    
+    const isValid = isFormValid(miles, gallons, price)
+    if(isValid) {
         err.textContent = ''
         avg_output.textContent = ''
-        const updateDataObj = trackMPGandCost(newDataObj)
-        MY_DATA.push(updateDataObj)
+        const dataObj = trackMPGandCost(miles, gallons, price)
+        MY_DATA.push(dataObj)
         calcAvg()
-
     }
     formEl.reset()
-
 })
 
-//feedback left in README.md
