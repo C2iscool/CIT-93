@@ -8,3 +8,5 @@
 
 ## I think it is because there are no links between the calculate functions and the table rendering. Perhaps we might need to call our calculation functions inside the render table function and get rid of the updateDOM code in the caalculation functions.
 
+## I thought I could put the render table inside of an array and attempt to condense it that way, but I could not.
+

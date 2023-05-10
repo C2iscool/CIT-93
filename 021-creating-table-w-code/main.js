@@ -72,7 +72,7 @@ function isFormValid (miles, gallons, price) {
 }
 
 
-
+const TBL_RENDER = [
 function renderTable() {
     const tbl = document.createElement('table')
     const headings = ['Miles Driven','Gallons Used','Price Paid:','Trip Cost','Edit/Delete']
@@ -96,8 +96,8 @@ function renderTable() {
     })
 
 
-
 }
+]
 
 /* Eventlisteners for form submit button, checks validation and if valid saves input data and calculated 
 data as an object into global array named MY_DATA */
