@@ -28,11 +28,11 @@ function trackMPGandCost (miles, gallons, price) {
     const tripCost = Math.round(gallons * price)
     updateDOM(`Miles per gallon  is ${MPG} and trip cost is ${tripCost}`, '#output')
     return {
-        MPG: MPG, 
-        tripCost: tripCost,
         miles: miles,
         gallons: gallons,
-        price: price
+        price: price,
+        MPG: MPG, 
+        tripCost: tripCost,
     }
 }
 
@@ -71,6 +71,8 @@ function isFormValid (miles, gallons, price) {
     }
 }
 
+
+
 function renderTable() {
     const tbl = document.createElement('table')
     const headings = ['Miles Driven','Gallons Used','Price Paid:','Trip Cost','Edit/Delete']
@@ -83,6 +85,15 @@ function renderTable() {
     console.log(tr)
     tbl.appendChild(tr)
     TBL_OUTPUT.appendChild(tbl)
+    MY_DATA.forEach(function(obj){
+        const tr = document.createElement('tr')
+        for(key in obj){
+            let td = document.createElement('td')
+            td.textContent = obj[key]
+            tr.appendChild(td)
+        }
+        tbl.appendChild(tr)
+    })
 
 
 
