@@ -71,19 +71,21 @@ function isFormValid (miles, gallons, price) {
     }
 }
 
-
-const TBL_RENDER = [
-function renderTable() {
+function renderTableHeadings () {
     const tbl = document.createElement('table')
-    const headings = ['Miles Driven','Gallons Used','Price Paid:','Trip Cost','Edit/Delete']
+    const headings = ['Miles Driven','Gallons Used','Price Paid:','Trip MPG','Trip Cost','Edit/Delete']
     const tr = document.createElement('tr')
     headings.forEach(function(heading){
         let th = document.createElement('th')
         th.textContent = heading
         tr.appendChild(th)
     })
-    console.log(tr)
     tbl.appendChild(tr)
+    return tbl
+}
+
+function renderTable() {
+    const tbl = renderTableHeadings()
     TBL_OUTPUT.appendChild(tbl)
     MY_DATA.forEach(function(obj){
         const tr = document.createElement('tr')
@@ -92,12 +94,20 @@ function renderTable() {
             td.textContent = obj[key]
             tr.appendChild(td)
         }
+        const btnTD = document.createElement('td')
+        const editBtn = document.createElement('button')
+        editBtn.textContent = 'edit'
+        const delBtn = document.createElement('button')
+        delBtn.textContent = 'delete'
+        btnTD.appendChild(editBtn)
+        btnTD.appendChild(delBtn)
+        tr.appendChild(btnTD)
         tbl.appendChild(tr)
     })
 
 
+
 }
-]
 
 /* Eventlisteners for form submit button, checks validation and if valid saves input data and calculated 
 data as an object into global array named MY_DATA */

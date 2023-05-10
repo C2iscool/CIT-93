@@ -10,3 +10,5 @@
 
 ## I thought I could put the render table inside of an array and attempt to condense it that way, but I could not.
 
+## I think we may have to remove the updateDOM calls from the calculation functions.
+
