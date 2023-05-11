@@ -86,16 +86,20 @@ function renderTableHeadings() {
 
 // renderEditDelBtn the DOM creation of the buttons for handling edit and delete functionality in the table.
 
-function renderEditDelBtn() {
+function renderEditDelBtn(index) {
     const td = document.createElement('td');
     const editBtn = document.createElement('button');
     editBtn.textContent = 'edit';
     const delBtn = document.createElement('button');
     delBtn.textContent = 'delete';
     // add eventlistener
-    // for edit reference the obj in the array for the current row in the table and populate the form inputs fields
+    // for edit - reference teh obj in the array
+    //for the current row in the table
+    //and populate the form inputs fields
    editBtn.addEventListener('click', function(e){
-        console.log(e)
+        console.log(index)
+        // MY_DATA.push.appendChild
+        //FORM[0]
    })
     td.appendChild(editBtn);
     td.appendChild(delBtn);
