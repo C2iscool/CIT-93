@@ -97,10 +97,18 @@ function renderEditDelBtn(index) {
     //for the current row in the table
     //and populate the form inputs fields
    editBtn.addEventListener('click', function(e){
-        console.log(index)
-        // MY_DATA.push.appendChild
-        //FORM[0]
-   })
+        FORM[0].value = MY_DATA[index].miles
+        FORM[1].value = MY_DATA[index].gallons
+        FORM[2].value = MY_DATA[index].price
+        MY_DATA.splice(index, 1)
+
+    })
+    delBtn.addEventListener('click', function(e) {
+        FORM[0].value = MY_DATA[index].miles
+        FORM[0].value = MY_DATA[index].gallons
+        FORM[0].value = MY_DATA[index].price
+        MY_DATA.pop(index, 1)
+    })
     td.appendChild(editBtn);
     td.appendChild(delBtn);
     return td;
