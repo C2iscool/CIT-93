@@ -101,14 +101,12 @@ function renderEditDelBtn(index) {
         FORM[1].value = MY_DATA[index].gallons
         FORM[2].value = MY_DATA[index].price
         MY_DATA.splice(index, 1)
+    })
+    delBtn.addEventListener('click', function(e){
+        MY_DATA.splice(index, 1)
+        renderTable()
+    })
 
-    })
-    delBtn.addEventListener('click', function(e) {
-        FORM[0].value = MY_DATA[index].miles
-        FORM[0].value = MY_DATA[index].gallons
-        FORM[0].value = MY_DATA[index].price
-        MY_DATA.pop(index, 1)
-    })
     td.appendChild(editBtn);
     td.appendChild(delBtn);
     return td;
@@ -118,6 +116,7 @@ function renderEditDelBtn(index) {
 
 function renderTable() {
     TBL_OUTPUT.innerHTML = '';
+if(MY_DATA.length !== 0){
     const tbl = renderTableHeadings();
     TBL_OUTPUT.appendChild(tbl);
     MY_DATA.forEach(function (obj, index) {
@@ -131,6 +130,7 @@ function renderTable() {
         tr.appendChild(btnTD);
         tbl.appendChild(tr);
     });
+    }
 
 }
 
