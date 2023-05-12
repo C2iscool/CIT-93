@@ -1,0 +1,2 @@
+# Week 12 DOM Selectors: 
+## I tried adding decimals into the form validation code like "0.0". I was also thinking that the form we wrote in the index.html was limiting us. I feel like using the number type might be too restrictive and it might be part of why it is not letting us enter decimals. I think we may need to use a different type that includes decimals but also restricts letters. I just do not know what type meets that criteria.
