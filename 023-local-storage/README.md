@@ -1,0 +1,2 @@
+# Week 11 JavaScript research: 
+## After doing some research, I have a bit better understanding of JSON. It is not really its own language for standalone coding. It is a data file format for storing and transferring objects. It seems to mainly be used for JavaScript, but most other languages seem to have support for JSON as well. This makes it almost universal for most programmers. It stores objects, identifying them with unique names and values. Arrays and objects are set up very similarly using brackets and braces.
