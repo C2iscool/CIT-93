@@ -1,4 +1,3 @@
-import {FORM, isFormValid} from "./forms.js"
 function getTripData() {
     const tripDataJSON = localStorage.getItem('tripdata')
     if(tripDataJSON !== null) {

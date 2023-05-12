@@ -32,3 +32,4 @@ FORM.addEventListener('submit', (e) => {
 });
 
 export {FORM, isFormValid}
+import

@@ -1,5 +1,4 @@
 import { saveTripData } from "./storage.js";
-import {FORM, isFormValid} from "./forms.js"
 const FORM = document.getElementById('form-input');
 const TBL_OUTPUT = document.getElementById('table-out');
 
@@ -63,7 +62,6 @@ if(MY_DATA.length !== 0){
         tbl.appendChild(tr);
     });
     }
-
 }
 
 export {renderTable}
