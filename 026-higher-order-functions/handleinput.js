@@ -1,4 +1,5 @@
 const ERR = document.getElementById('err');
+const AVG_OUTPUT = document.getElementById('output-avg');
 
 /* updateDOM function takes in input (string value) and id (to determine DOM location to update) 
 and creates and updates DOM elements*/
@@ -30,13 +31,8 @@ function trackMPGandCost(miles, gallons, price) {
 */
 
 function calculateAvg(MY_DATA) {
+    AVG_OUTPUT.innerHTML= ''
     const numberOfObj = MY_DATA.length;
-    // let sumMPG = 0;
-    // let sumTripCost = 0;
-    // MY_DATA.forEach(obj => {
-    //     sumMPG += obj.MPG;
-    //     sumTripCost += obj.tripCost;
-    // });
     const sums = MY_DATA.reduce(function(sum, obj){
         return {
             MPG: sum.MPG + obj.MPG,

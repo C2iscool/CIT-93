@@ -1,4 +1,5 @@
 import { saveTripData } from "./storage.js";
+import { calculateAvg } from "./handleinput.js";
 const FORM = document.getElementById('form-input');
 const TBL_OUTPUT = document.getElementById('table-out');
 
@@ -43,7 +44,6 @@ function renderEditDelBtn(MY_DATA, index) {
     })
     editBtn.classList.add('tbl-btn')
     delBtn.classList.add('tbl-btn')
-
     td.appendChild(editBtn);
     td.appendChild(delBtn);
     return td;
@@ -68,6 +68,7 @@ if(MY_DATA.length !== 0){
         tbl.appendChild(tr);
     });
     }
+    calculateAvg(MY_DATA);
 }
 
 export {renderTable}
