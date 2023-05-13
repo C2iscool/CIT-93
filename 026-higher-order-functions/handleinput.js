@@ -43,8 +43,8 @@ function calculateAvg(MY_DATA) {
             tripCost: sum.tripCost + obj.tripCost
         }
     })
-    const avgMPG = Number((sumMPG / numberOfObj).toFixed(2));
-    const avgTripCost = Number((sumTripCost / numberOfObj).toFixed(2));
+    const avgMPG = Number((sums.MPG / numberOfObj).toFixed(2));
+    const avgTripCost = Number((sums.tripCost / numberOfObj).toFixed(2));
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');
     updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg');
 }
