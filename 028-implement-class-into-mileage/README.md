@@ -1,0 +1,3 @@
+# Week 12 Implement class into mileage
+
+## My idea of first starting would involve going into handleinput.js and making a new class there miles with the miles, gallons and price. If we need to export it to the other modules, then we can do that. I don't think we need to hide or encapsulate our objects or variables, but if we do, I can understand that. I imagine then that we can also call back our calculation code too, but outside the class.
