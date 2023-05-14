@@ -11,14 +11,6 @@ function updateDOM(input, id) {
     divEl.appendChild(p);
 }
 
-// class MileageParameters {
-//  constructor(miles, gallons, price) {
-//  this.miles = miles
-//  this.gallons = gallons
-//  this.price = price
-// }
-// }
-
 /* trackMPGandCost function takes in miles, gallons and price and calculates MPG and tripCost and 
 returns an object */
 
