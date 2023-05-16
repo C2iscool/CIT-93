@@ -1,3 +1,5 @@
 # I thought the first callback would be to a function before the things. In this case, I think it would call back to a parameter that is set in the function. The second one seems to be a callback to thing3.
 
 # My attempts failed. I tried to make a function inside the eventListener using the inputs from the form. I copied the updateDOM function from a previous week in the hopes that I could convert it to work here. I did not know how to pass the time input to the setTimeout function.
+
+# I think there a bunch of ideas. We could change the strings to have an encouraging message at the synchronous part, and at the end, when the setTimeout expires and have it congratulate you. We could add a local storage thing to store personal bests. We could have that object show up when data is submitted and have it updated if the rep value entered is higher than the previous reps entered. WE could have another setTimeout thing that gives you a motivational message at the halfway point of the timer.
