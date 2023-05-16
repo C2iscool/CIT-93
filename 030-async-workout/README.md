@@ -1,1 +1,3 @@
 # I thought the first callback would be to a function before the things. In this case, I think it would call back to a parameter that is set in the function. The second one seems to be a callback to thing3.
+
+# My attempts failed. I tried to make a function inside the eventListener using the inputs from the form. I copied the updateDOM function from a previous week in the hopes that I could convert it to work here. I did not know how to pass the time input to the setTimeout function.
