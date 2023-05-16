@@ -8,11 +8,22 @@ function updateDOM(message, el) {
 }
 
 function startWorkout (type, reps, time, fn) {
-    fn(`Start doing ${type} Your target is ${reps} of them.`, `p`)
+    fn(`Start doing ${type}. Your target is ${reps} of them.`, `p`)
     setTimeout(() => {
         fn(`Time is Up! Did you do all your ${type}?`, 'p')
     }, time * 1000)
 }
+
+// function startWorkoutPromise () {
+//     return new Promise((resolve, reject) => {
+//         resolve(`Start doing ${type}. Your target is ${reps} of them.`, 'p')
+//         setTimeout(() => {
+//             resolve(`Time is up! Did you do all your ${type}?`, 'p')
+//         }, time * 2000)
+//     })
+// }
+
+// startWorkoutPromise()
 
 formEl.addEventListener('submit', function(e) {
     e.preventDefault();
