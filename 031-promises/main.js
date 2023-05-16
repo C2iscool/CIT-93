@@ -1,33 +1,19 @@
-function fun1() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            reject('BAD DATA')
-        }, 100)
+function fetchData() {
+    return new Promise(function(resolve, reject){
+        fetch('https://api.weather.gov/gridpoints/OKX/35,35/forecast')
+        .then(response => response.json())
+        .then(data => resolve(data.properties.periods[1].shortForecast));
     })
 }
 
-function fun2() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('🦀')
-        }, 100)
-    })
+function displayData(weather) {
+    console.log(weather)
 }
 
-function onSuccess(data) {
-    console.log(`Success: ${data}`)
+function onError(err) {
+    console.log(`Error ${err}`)
 }
 
-function onError(errorCode) {
-    console.log(`ERROR ${errorCode}`)
-}
-
-function onFinally() {
-    console.log('THE FINAL COUNTDOWN')
-}
-
-fun1()
-    .then(fun2)
-    .then(onSuccess)
+fetchData()
+    .then(displayData)
     .catch(onError)
-    .finally(onFinally)
