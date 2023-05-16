@@ -1,0 +1,1 @@
+# I thought the first callback would be to a function before the things. In this case, I think it would call back to a parameter that is set in the function. The second one seems to be a callback to thing3.
