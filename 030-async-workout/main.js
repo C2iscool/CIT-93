@@ -9,27 +9,23 @@ function updateDOM(message, el) {
 
 function startWorkout (type, reps, time, fn) {
     fn(`Start doing ${type}. Your target is ${reps} of them.`, `p`)
-    setTimeout(() => {
-        fn(`Time is Up! Did you do all your ${type}?`, 'p')
-    }, time * 1000)
+    return new Promise(function(resolve, reject){
+        setTimeout(() => {
+            // resolve(fn(`Time is Up! Did you do all your ${type}?`, 'p'))
+            reject(fn(`OH NO BRO`, 'p'))
+        }, time * 1000)
+    })
 }
 
-// function startWorkoutPromise () {
-//     return new Promise((resolve, reject) => {
-//         resolve(`Start doing ${type}. Your target is ${reps} of them.`, 'p')
-//         setTimeout(() => {
-//             resolve(`Time is up! Did you do all your ${type}?`, 'p')
-//         }, time * 2000)
-//     })
-// }
-
-// startWorkoutPromise()
+function onError(err) {
+    console.log(`Error ${err}`)
+}
 
 formEl.addEventListener('submit', function(e) {
     e.preventDefault();
     const type = e.target.type.value
     const reps = parseFloat(e.target.reps.value)
     const time = parseFloat(e.target.time.value)
-    startWorkout(type, reps, time, updateDOM)
+    startWorkout(type, reps, time, updateDOM).then().catch(onError)
     formEl.reset()
 })
