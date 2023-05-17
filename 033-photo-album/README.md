@@ -1,0 +1,3 @@
+# WEEK 15 PHOTO ALBUM
+
+# I tried creating a fetch function based on the one in ColorCode's video. I put in the URL inside the fetch and I also tried using an updateDOM function from a previous week. I tried to parse the json data and make it go through updateDOM with no luck. I don't know if I needed a promise function to resolve the code or not. I tried using the img tag in html with the api link, but that ended up giving me a strange error too.
