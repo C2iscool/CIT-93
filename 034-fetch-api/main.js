@@ -1,4 +1,4 @@
-const url = 'http://worldtimeapi.org/api/timezone/America/Los_Angeles'
+const url = 'http://api.thenewsapi.com/v1/news/top?api_token=MORE_HORRIFIC_NEWS'
 
 async function getData() {
     const response = await fetch(url)
