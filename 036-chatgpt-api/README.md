@@ -1,0 +1,1 @@
+# I thought your approach to it was clever. I did not even think about asking ChatGPT. I was limiting myself to the website documentation and I did not even know if I was in the right spot either.
