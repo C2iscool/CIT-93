@@ -1,9 +1,22 @@
-const url = 'http://api.thenewsapi.com/v1/news/top?api_token=MORE_HORRIFIC_NEWS'
+const url = 'https://api.spotify.com/v1/artists/6XyY86QOPPrYVGvF9ch6wz'
 
-async function getData() {
-    const response = await fetch(url)
-    const data = await response.json()
-    console.log(data)
-}
+    const request = new Request(url, {
+        headers: {
+            'Authorization': 'Bearer of COOL AWESOME VALUE'
+        }
+    })
+    async function getData() {
+        try {
+            const response = await fetch(request)
+            const data = await response.json()
+            if (response.status === 200) {
+                console.log('Success:', data)
+            } else {
+                console.log(`Server Error:`, data.error.message)
+            }
+        } catch(error) {
+            console.log('Fetch Error:', error)
+        }
+    }
 
-getData()
+    getData()
