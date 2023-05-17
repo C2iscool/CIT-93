@@ -1,3 +1,5 @@
 # WEEK 16 FETCH API
 
 # Yes, I check all my code to make sure it runs before I push it. If it doesn't for a challenge, I state that in these README.md files and I sometimes state it in my commit messages if they failed or not.
+
+# Fetch was introduced in 2015, and has since been introduced to all major modern browsers natively. Previously, you would have to install seperate libraries to use it. Another option was to use XmlHttpRequest, or simply, XHR. An HTTP Request is just a request from a client to a server. It is incredibly important for being able to send and receive things online. Fetch is a good option since it natively supported, it supports modern features of the internet and browsing, and it relies on promises instead of callbacks. It seems to be an overall better option in most circumstances.
